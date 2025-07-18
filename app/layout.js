@@ -13,8 +13,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider   publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
->
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
       <html lang="en">
         <head>
           <link rel="icon" href="/logo-sm.png" sizes="any" />
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
 
           <footer className="bg-blue-50 py-12">
             <div className="container mx-auto px-4 text-center text-gray-600">
-              <p>Made with 💗 by RoadsideCoder</p>
+              <p>Made with 💗 by NITIN TIWARI</p>
             </div>
           </footer>
         </body>
