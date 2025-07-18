@@ -33,7 +33,7 @@ import { ReceiptScanner } from "./recipt-scanner";
 
 export function AddTransactionForm({
   accounts,
-  categories,
+  categories = [],
   editMode = false,
   initialData = null,
 }) {
@@ -69,7 +69,9 @@ export function AddTransactionForm({
             type: "EXPENSE",
             amount: "",
             description: "",
-            accountId: accounts.find((ac) => ac.isDefault)?.id,
+            accountId: Array.isArray(accounts)
+              ? (accounts.find((ac) => ac.isDefault)?.id ?? "")
+              : "",
             date: new Date(),
             isRecurring: false,
           },
@@ -124,9 +126,9 @@ export function AddTransactionForm({
   const isRecurring = watch("isRecurring");
   const date = watch("date");
 
-  const filteredCategories = categories.filter(
-    (category) => category.type === type
-  );
+  const filteredCategories = Array.isArray(categories)
+    ? categories.filter((category) => category.type === type)
+    : [];
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
