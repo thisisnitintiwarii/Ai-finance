@@ -13,15 +13,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en">
         <body className={`${inter.className}`}>
-          {/* Header */}
           <Header />
           <main className="min-h-screen">{children}</main>
-          <Toaster/>
-          {/* footer */}
-          <footer className="bg-blue-50 py-12 ">
+          <Toaster />
+          <footer className="bg-blue-50 py-12">
             <div className="container mx-auto px-4 text-center text-gray-600">
               <p>Made by NITIN TIWARI</p>
             </div>
